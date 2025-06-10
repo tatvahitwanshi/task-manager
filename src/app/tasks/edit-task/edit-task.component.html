@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<h2>Edit Task</h2>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" style="max-width: 600px; margin: 20px auto; display: flex; flex-direction: column; gap: 15px;">
+  <input formControlName="title" placeholder="Title" required style="padding: 10px; font-size: 1rem;" />
+  <textarea formControlName="description" placeholder="Description" style="padding: 10px; font-size: 1rem;"></textarea>
+  <input type="date" formControlName="dueDate" style="padding: 10px; font-size: 1rem;" />
+  <select formControlName="priority" style="padding: 10px; font-size: 1rem;">
+    <option value="">Select Priority</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+  <button type="submit" style="padding: 10px; font-size: 1rem; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Update</button>
+</form>

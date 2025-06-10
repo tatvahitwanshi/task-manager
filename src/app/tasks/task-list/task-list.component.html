@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="task-list-container">
+  <h2 class="task-title">🗂️ My Tasks</h2>
+
+  <div class="table-wrapper">
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.duedate | date: 'mediumDate' }}</td>
+          <td>{{ task.priority }}</td>
+          <td><button (click)="editTask(task.id)" class="edit-btn">Edit</button>
+            <button (click)="delete(task.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+    <h3>Edit Task ✏️</h3>
+
+    <form [formGroup]="editForm" (ngSubmit)="updateTask()" class="modal-form">
+      <input formControlName="title" placeholder="Title" />
+      <div class="error" *ngIf="submittedEdit && editForm.get('title')?.invalid">
+        Title is required.
+      </div>
+
+      <textarea formControlName="description" placeholder="Description"></textarea>
+      <div class="error" *ngIf="submittedEdit && editForm.get('description')?.invalid">
+        Description is required.
+      </div>
+
+      <input type="date" formControlName="duedate" />
+      <div class="error" *ngIf="submittedEdit && editForm.get('duedate')?.invalid">
+        Due Date is required.
+      </div>
+
+      <select formControlName="priority">
+        <option value="">Select Priority</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <div class="error" *ngIf="submittedEdit && editForm.get('priority')?.invalid">
+        Priority is required.
+      </div>
+
+      <button type="submit" class="update-btn">Update</button>
+    </form>
+
+  </div>
+</div>

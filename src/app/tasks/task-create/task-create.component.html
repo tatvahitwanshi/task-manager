@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="create-task-container">
+  <div class="create-task-card">
+    <h2>Create Task</h2>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <input formControlName="title" placeholder="Title" />
+      <div class="error" *ngIf="submitted && taskForm.get('title')?.invalid">
+        Title is required.
+      </div>
+
+      <textarea formControlName="description" placeholder="Description"></textarea>
+      <div class="error" *ngIf="submitted && taskForm.get('description')?.invalid">
+        Description is required.
+      </div>
+
+      <input type="date" formControlName="dueDate" />
+      <div class="error" *ngIf="submitted && taskForm.get('dueDate')?.invalid">
+        Due Date is required.
+      </div>
+
+      <select formControlName="priority">
+        <option value="">Select Priority</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <div class="error" *ngIf="submitted && taskForm.get('priority')?.invalid">
+        Priority is required.
+      </div>
+
+      <button type="submit">Create Task</button>
+    </form>
+  </div>
+</div>

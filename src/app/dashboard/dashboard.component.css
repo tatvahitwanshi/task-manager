@@ -1,0 +1,45 @@
+.dashboard-container {
+  padding: 40px;
+  background: linear-gradient(to bottom, rgba(245, 245, 255, 0.9), rgba(232, 244, 255, 0.95));
+  min-height: 83vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.task-table thead {
+  background-color: rgba(146, 141, 218, 0.8); /* same pink tone as your gradient */
+  color: #fff;
+  text-align: left;
+}
+
+.task-table th,
+.task-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-table tbody tr:hover {
+  background-color: rgba(126, 174, 242, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
