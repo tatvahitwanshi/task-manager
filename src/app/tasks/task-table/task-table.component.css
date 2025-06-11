@@ -1,0 +1,62 @@
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.task-table thead {
+  background-color: rgba(146, 141, 218, 0.8);
+  color: #fff;
+  text-align: left;
+}
+
+.task-table th,
+.task-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-table tbody tr:hover {
+  background-color: rgba(126, 174, 242, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+mat-paginator {
+  background-color: #312a35ea;
+  font-weight: 400;
+}
+.edit-btn {
+  padding: 6px 12px;
+  background-color: #904caf;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.edit-btn:hover {
+  background-color: #551b70;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}

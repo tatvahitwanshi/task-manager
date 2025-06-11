@@ -6,7 +6,6 @@ import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { TaskCreateComponent } from './tasks/task-create/task-create.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { ErrorComponent } from './error/error.component';
 
 export const routes: Routes = [
@@ -17,6 +16,5 @@ export const routes: Routes = [
   { path: 'tasks', component: TaskListComponent, canActivate: [AuthGuard] },
   { path: 'create-task', component: TaskCreateComponent, canActivate: [AuthGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
-  { path: 'tasks/:id', component: EditTaskComponent, canActivate: [AuthGuard] },
   { path: 'error', component: ErrorComponent }
 ];

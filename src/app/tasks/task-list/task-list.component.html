@@ -3,32 +3,20 @@
 <div class="task-list-container">
   <h2 class="task-title">🗂️ My Tasks</h2>
 
-  <div class="table-wrapper">
-    <table class="task-table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>Due Date</th>
-          <th>Priority</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>{{ task.title }}</td>
-          <td>{{ task.description }}</td>
-          <td>{{ task.status }}</td>
-          <td>{{ task.duedate | date: 'mediumDate' }}</td>
-          <td>{{ task.priority }}</td>
-          <td><button (click)="editTask(task.id)" class="edit-btn">Edit</button>
-            <button (click)="delete(task.id)" class="delete-btn">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Search by task title..."
+    class="search-input"
+  />
+
+  <app-task-table
+    [tasks]="filteredTasks"
+    [enableActions]="true"
+    (edit)="editTask($event)"
+    (delete)="delete($event)">
+  </app-task-table>
 </div>
 
 <!-- Modal -->
@@ -61,6 +49,16 @@
       </select>
       <div class="error" *ngIf="submittedEdit && editForm.get('priority')?.invalid">
         Priority is required.
+      </div>
+
+      <select formControlName="status">
+        <option value="">Select status</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <div class="error" *ngIf="submittedEdit && editForm.get('status')?.invalid">
+        Status is required.
       </div>
 
       <button type="submit" class="update-btn">Update</button>
