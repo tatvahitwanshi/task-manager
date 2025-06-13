@@ -10,10 +10,13 @@
         Title is required.
       </div>
 
-      <textarea formControlName="description" placeholder="Description"></textarea>
-      <div class="error" *ngIf="submitted && taskForm.get('description')?.invalid">
-        Description is required.
-      </div>
+      <app-text-area
+        [form]="taskForm"
+        [formControlModel]="textAreaModel"
+        [rows]="4"
+        (inputChange)="taskForm.get('description')?.setValue($event)">
+      </app-text-area>
+
 
       <input type="date" formControlName="dueDate" />
       <div class="error" *ngIf="submitted && taskForm.get('dueDate')?.invalid">

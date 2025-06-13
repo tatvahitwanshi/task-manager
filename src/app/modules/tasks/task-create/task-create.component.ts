@@ -3,14 +3,16 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../../services/task.service';
-import {NavbarComponent} from '../../navbar/navbar.component'; // Import NavbarComponent if needed
+import {NavbarComponent} from '../../navbar/navbar.component';
+import { FormControlModel } from '../../../shared/modules/form-control/interface/form-control.interface';
+import { TextAreaComponent } from '../../../shared/modules/form-control/component/text-area/text-area.component';
 
 @Component({
   selector: 'app-task-create',
   standalone: true,
   templateUrl: './task-create.component.html',
   styleUrls: ['./task-create.component.css'],
-  imports: [CommonModule, ReactiveFormsModule,NavbarComponent]
+  imports: [CommonModule, ReactiveFormsModule,NavbarComponent,TextAreaComponent]
 })
 export class TaskCreateComponent {
   taskForm: FormGroup;
@@ -25,7 +27,13 @@ export class TaskCreateComponent {
       priority: ['', Validators.required]
     });
   }
-
+  textAreaModel: FormControlModel = {
+    key: 'description',
+    label: 'Description',
+    isDisable: false,
+    inputType: 'text',
+    displayIcon: false,
+  };
   onSubmit() {
     this.submitted = true;
 

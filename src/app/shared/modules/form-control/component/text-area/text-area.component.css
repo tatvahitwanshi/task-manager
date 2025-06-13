@@ -1,0 +1,33 @@
+/* Style for the mat-form-field and its inner textarea */
+mat-form-field {
+  width: 100%;
+}
+
+.textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Prevent resizing if rows are fixed */
+.no-resize {
+  resize: none;
+}
+
+/* Focus effect like inputs */
+.textarea:focus {
+  border-color: #9b4caf;
+  outline: none;
+}
+
+/* mat-error styling (optional, for consistency) */
+mat-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}

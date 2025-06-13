@@ -10,11 +10,11 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
   getTasks(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:5223/api/task/by-user', { withCredentials: true });
+    return this.http.get<any[]>(`${this.baseUrl}/task/by-user`, { withCredentials: true });
   }
 
   createTask(task: any): Observable<any> {
-    return this.http.post('http://localhost:5223/api/task/create', task, { withCredentials: true });
+    return this.http.post(`${this.baseUrl}/task/create`, task, { withCredentials: true });
   }
   getTaskById(id: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/task/${id}`);
@@ -25,6 +25,10 @@ export class TaskService {
   }
 
   deleteTask(id: number) {
-    return this.http.delete(`http://localhost:5223/api/Auth/${id}`, { withCredentials: true });
+    return this.http.delete(`${this.baseUrl}/Auth/${id}`, { withCredentials: true });
+  }
+
+  getUserRole(): Observable<{role: string}> {
+    return this.http.get<{role: string}>(`${this.baseUrl}/Auth/validate`, { withCredentials: true });
   }
 }

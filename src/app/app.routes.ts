@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TaskListComponent } from './tasks/task-list/task-list.component';
-import { TaskCreateComponent } from './tasks/task-create/task-create.component';
-import { AuthGuard } from './auth/auth.guard';
-import { LogoutComponent } from './auth/logout/logout.component';
-import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './modules/auth/login/login.component';
+import { RegisterComponent } from './modules/auth/register/register.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { TaskListComponent } from './modules/tasks/task-list/task-list.component';
+import { TaskCreateComponent } from './modules/tasks/task-create/task-create.component';
+import { AuthGuard } from './modules/auth/auth.guard';
+import { LogoutComponent } from './modules/auth/logout/logout.component';
+import { ErrorComponent } from './modules/error/error.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
